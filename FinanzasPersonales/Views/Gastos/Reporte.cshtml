@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Reporte Gastos";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<div class="row" id="frmParams">
+    <div class="col-3">
+        <div class="form-group">
+            <label class="">Categoría</label>
+            <select id="categoria" class="form-control">
+                <option value="0">Todas</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="form-group">
+            <label class="">Desde</label>
+            <input id="desde" class="form-control" type="date" />
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="form-group">
+            <label class="">Hasta</label>
+            <input id="hasta" class="form-control" type="date"/>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="form-group">
+            <label class="">&nbsp;</label>
+            <button type="button" class="form-control btn btn-primary" data-toggle="modal" style="float:right;" id="btnProcesar">Procesar <span class="octicon octicon-gear"></span></button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div id="data">
+            <table id="tGastos" class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Justificación</th>
+                        <th>Fecha</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                <tfoot class="thead-light">
+                    <tr>
+                        <th style="text-align:right;">Cantidad:</th>
+                        <th><span id="numero"></span></th>
+                        <th style="text-align:right;">Total:</th>
+                        <th><span id="total"></span></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+@System.Web.Optimization.Scripts.Render("~/bundles/datatables")
+<script src="~/Scripts/Controllers/GastosReporteController.js"></script>

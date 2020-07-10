@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "Presupuestos";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<div class="row" id="frmParams">
+    <div class="col-3">
+    </div>
+    <div class="col-3">
+    </div>
+    <div class="col-3">
+    </div>
+    <div class="col-3">
+        <div class="form-group">
+            <label class="">&nbsp;</label>
+            <button type="button" class="btn btn-primary form-control" data-toggle="modal" style="float:right;" id="btnAgregar">Agregar <span class="octicon octicon-plus"></span></button>&nbsp;
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-12">
+        <div id="data">
+            <table id="tData" class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Desde</th>
+                        <th>Hasta</th>
+                        <th>Nombre</th>
+                        <th>...</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot class="thead-light">
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="modelModal" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="gastoFromTitle">Registro de presupuesto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <br />
+            <div class="col-12">
+                <div id="frmModel">
+                    <input id="id_pres" type="hidden" />
+                    <div class="form-group">
+                        <label class="">Desde</label>
+                        <input id="Desde" class="form-control" type="date" />
+                    </div>
+                    <div class="form-group">
+                        <label class="">Hasta</label>
+                        <input id="Hasta" class="form-control" type="date" />
+                    </div>
+                    <div class="form-group">
+                        <label class="">Nombre Presupuesto</label>
+                        <input id="Nombre" class="form-control" type="text" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnGuardar" class="btn btn-outline-info">Registrar</button>
+                <button id="btnActualizar" class="btn btn-outline-info">Actualizar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="confirmModal" aria-labelledby="myLargeModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Desea eliminar este registro?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnEliminar" class="btn btn-outline-danger">Eliminar</button>
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal" aria-label="Close">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+@System.Web.Optimization.Scripts.Render("~/bundles/datatables")
+<script src="~/Scripts/Controllers/PresupuestosController.js"></script>
+

@@ -1,0 +1,73 @@
+﻿@using System.Web.Optimization;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Finanzas Personales</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/Main")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        @Html.ActionLink("Finanzas Personales", "Index", "Home", null, new { @class = "navbar-brand" })
+        <a class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                @*<li class="nav-item active">
+                    @Html.ActionLink("Inicio", "Index", "Home", null, new { @class = "nav-link active" })
+                </li>*@
+                @*<li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>*@
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Gastos
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @Html.ActionLink("Registro de gastos", "Index", "Gastos", null, new { @class = "dropdown-item" })
+                        @Html.ActionLink("Categorias de gastos", "Index", "Categorias", null, new { @class = "dropdown-item" })
+                        <div class="dropdown-divider"></div>
+                        @Html.ActionLink("Reporte", "Reporte", "Gastos", null, new { @class = "dropdown-item" })
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Presupuesto
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @Html.ActionLink("Presupuestos", "Index", "Presupuestos", null, new { @class = "dropdown-item" })
+                        @Html.ActionLink("Cuentas Presupuestarias", "Index", "CuentaPres", null, new { @class = "dropdown-item" })
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div style="position:absolute;top:15px;right:30px;z-index:500;min-width:300px;" id="toastContainer">
+    </div>
+    <br />
+    <div class="container">
+        <div class="card border border-info">
+            <div class="card-header bg-info">
+                <h2>@ViewBag.Title</h2>
+            </div>
+            <div class="body-container">
+                <div style="margin:8px;">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>
+            Autor: Carlos Lora&nbsp;<a href="mailto:brandol1406@hotmail.com">brandol1406@hotmail.com</a>
+        </p>
+    </footer>
+</body>
+</html>

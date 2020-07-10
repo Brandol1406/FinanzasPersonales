@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PRUEBA_CARLOS_LORAModelStoreContainer" CdmEntityContainer="FinanzasPersonales">
+    <EntitySetMapping Name="t_Categoria_gasto">
+      <EntityTypeMapping TypeName="PRUEBA_CARLOS_LORAModel.t_Categoria_gasto">
+        <MappingFragment StoreEntitySet="t_Categoria_gasto">
+          <ScalarProperty Name="id_cat" ColumnName="id_cat" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_Gastos">
+      <EntityTypeMapping TypeName="PRUEBA_CARLOS_LORAModel.t_Gastos">
+        <MappingFragment StoreEntitySet="t_Gastos">
+          <ScalarProperty Name="id_gasto" ColumnName="id_gasto" />
+          <ScalarProperty Name="id_cat" ColumnName="id_cat" />
+          <ScalarProperty Name="justificacion" ColumnName="justificacion" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_cuenta_pres">
+      <EntityTypeMapping TypeName="PRUEBA_CARLOS_LORAModel.t_cuenta_pres">
+        <MappingFragment StoreEntitySet="t_cuenta_pres">
+          <ScalarProperty Name="Limite" ColumnName="Limite" />
+          <ScalarProperty Name="id_cat" ColumnName="id_cat" />
+          <ScalarProperty Name="id_pres" ColumnName="id_pres" />
+          <ScalarProperty Name="id_cuent" ColumnName="id_cuent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_presupuesto">
+      <EntityTypeMapping TypeName="PRUEBA_CARLOS_LORAModel.t_presupuesto">
+        <MappingFragment StoreEntitySet="t_presupuesto">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+          <ScalarProperty Name="Desde" ColumnName="Desde" />
+          <ScalarProperty Name="id_pres" ColumnName="id_pres" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Registro Gastos";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<div class="row" id="frmParams">
+    <div class="col-3">
+    </div>
+    <div class="col-3">
+    </div>
+    <div class="col-3">
+    </div>
+    <div class="col-3">
+        <div class="form-group">
+            <label class="">&nbsp;</label>
+            <button type="button" class="btn btn-primary form-control" data-toggle="modal" style="float:right;" id="btnAgregar">Agregar <span class="octicon octicon-plus"></span></button>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-12">
+        <div id="data">
+            <table id="tGastos" class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Razón</th>
+                        <th>Fecha</th>
+                        <th>Valor</th>
+                        <th>...</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot class="thead-light">
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="gastoModal" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="gastoFromTitle">Registro de gasto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <br />
+            <div class="col-12">
+                <div id="frmGasto">
+                    <input id="id_gasto" type="hidden" />
+                    <div class="form-group">
+                        <label class="">Categoría</label>
+                        <select id="categoria" class="form-control">
+                            <option value="0">Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="">Razón</label>
+                        <input id="justificacion" class="form-control" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="">Fecha</label>
+                        <input id="fecha" class="form-control" type="date" />
+                    </div>
+                    <div class="form-group">
+                        <label class="">Valor</label>
+                        <input id="valor" class="form-control" type="number" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnGuardar" class="btn btn-outline-info">Registrar</button>
+                <button id="btnActualizar" class="btn btn-outline-info">Actualizar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="confirmModal" aria-labelledby="myLargeModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Desea eliminar este gasto?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnEliminar" class="btn btn-outline-danger">Eliminar</button>
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal" aria-label="Close">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+@System.Web.Optimization.Scripts.Render("~/bundles/datatables")
+<script src="~/Scripts/Controllers/GastosController.js?v=3"></script>
+

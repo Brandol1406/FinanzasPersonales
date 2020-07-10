@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PRUEBA_CARLOS_LORAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="t_Categoria_gasto">
+    <Key>
+      <PropertyRef Name="id_cat" />
+    </Key>
+    <Property Name="id_cat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="t_cuenta_pres">
+    <Key>
+      <PropertyRef Name="id_cuent" />
+    </Key>
+    <Property Name="id_cuent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_pres" Type="int" Nullable="false" />
+    <Property Name="id_cat" Type="int" Nullable="false" />
+    <Property Name="Limite" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="t_Gastos">
+    <Key>
+      <PropertyRef Name="id_gasto" />
+    </Key>
+    <Property Name="id_gasto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_cat" Type="int" Nullable="false" />
+    <Property Name="justificacion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="valor" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="t_presupuesto">
+    <Key>
+      <PropertyRef Name="id_pres" />
+    </Key>
+    <Property Name="id_pres" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Desde" Type="date" Nullable="false" />
+    <Property Name="Hasta" Type="date" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityContainer Name="PRUEBA_CARLOS_LORAModelStoreContainer">
+    <EntitySet Name="t_Categoria_gasto" EntityType="Self.t_Categoria_gasto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="t_cuenta_pres" EntityType="Self.t_cuenta_pres" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="t_Gastos" EntityType="Self.t_Gastos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="t_presupuesto" EntityType="Self.t_presupuesto" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

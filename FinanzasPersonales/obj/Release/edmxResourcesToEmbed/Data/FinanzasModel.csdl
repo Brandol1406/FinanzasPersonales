@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PRUEBA_CARLOS_LORAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="t_Categoria_gasto">
+    <Key>
+      <PropertyRef Name="id_cat" />
+    </Key>
+    <Property Name="id_cat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="t_Gastos">
+    <Key>
+      <PropertyRef Name="id_gasto" />
+    </Key>
+    <Property Name="id_gasto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_cat" Type="Int32" Nullable="false" />
+    <Property Name="justificacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="valor" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="FinanzasPersonales" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="t_Categoria_gasto" EntityType="Self.t_Categoria_gasto" />
+    <EntitySet Name="t_Gastos" EntityType="Self.t_Gastos" />
+    <EntitySet Name="t_cuenta_pres" EntityType="PRUEBA_CARLOS_LORAModel.t_cuenta_pres" />
+    <EntitySet Name="t_presupuesto" EntityType="PRUEBA_CARLOS_LORAModel.t_presupuesto" />
+  </EntityContainer>
+  <EntityType Name="t_cuenta_pres">
+    <Key>
+      <PropertyRef Name="id_cuent" />
+    </Key>
+    <Property Name="id_cuent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_pres" Type="Int32" Nullable="false" />
+    <Property Name="id_cat" Type="Int32" Nullable="false" />
+    <Property Name="Limite" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="t_presupuesto">
+    <Key>
+      <PropertyRef Name="id_pres" />
+    </Key>
+    <Property Name="id_pres" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Desde" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Hasta" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>
