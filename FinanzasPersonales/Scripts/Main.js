@@ -69,10 +69,23 @@ function fillDropDown(select, data, valueMember, displayMember) {
     });
 }
 
-function loadTable(table, url, columns, order = [[0, "desc"]]) {
+function loadTable(table, url, columns, order = [[0, "desc"]], drawCallBack = null) {
     return $(table).DataTable({
         ajax: { url: "/App" + url, dataSrc: "" },
         columns: columns,
-        order: order
+        order: order,
+        drawCallback: function (settings) {
+            var api = this.api();
+            if (drawCallBack !== null) {
+                drawCallBack(api.rows().data());
+            }
+        }
     });
+}
+function ShowLoader(container) {
+    let template = `<div class="d-flex align-items-center">
+                                <strong>Cargando...</strong>
+                                <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+                           </div`;
+    $(container).html(template);
 }

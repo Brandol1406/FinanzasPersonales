@@ -21,6 +21,20 @@ namespace FinanzasPersonales.Controllers
                 //Save
                 using (Data.FinanzasPersonales DB = new Data.FinanzasPersonales())
                 {
+                    //Validando que solo exista una cuenta presupuestaria para esta categoria
+                    if (DB.t_cuenta_pres.Any(a => a.id_cat == model.id_cat && a.id_pres == model.id_pres))
+                    {
+                        return Json(new ResponseResult()
+                        {
+                            Success = false,
+                            Data = new List<ValidationResult>() {
+                                new ValidationResult() {
+                                    Key = "id_cat",
+                                    Errors = new ModelErrorCollection() { "Ya existe esta categoria de gasto en este presupuesto" }
+                                }
+                            }
+                        });
+                    }
                     DB.t_cuenta_pres.Add(new Data.t_cuenta_pres()
                     {
                         id_pres = model.id_pres,
@@ -45,6 +59,20 @@ namespace FinanzasPersonales.Controllers
                 //Save
                 using (Data.FinanzasPersonales DB = new Data.FinanzasPersonales())
                 {
+                    //Validando que solo exista una cuenta presupuestaria para esta categoria
+                    if (DB.t_cuenta_pres.Any(a => (a.id_cat == model.id_cat && a.id_pres == model.id_pres) && a.id_cuent != model.id_cuent))
+                    {
+                        return Json(new ResponseResult()
+                        {
+                            Success = false,
+                            Data = new List<ValidationResult>() {
+                                new ValidationResult() {
+                                    Key = "id_cat",
+                                    Errors = new ModelErrorCollection() { "Ya existe esta categoria de gasto en este presupuesto" }
+                                }
+                            }
+                        });
+                    }
                     Data.t_cuenta_pres data = DB.t_cuenta_pres.Where(c => c.id_cuent == model.id_cuent).FirstOrDefault();
 
                     data.id_pres = model.id_pres;
@@ -93,19 +121,23 @@ namespace FinanzasPersonales.Controllers
             CuentaPres data = new CuentaPres();
             using (Data.FinanzasPersonales DB = new Data.FinanzasPersonales())
             {
-                var fromDbCat = DB.t_cuenta_pres.Where(c => c.id_cuent == id).FirstOrDefault();
-                if (fromDbCat == null)
+                var fromDb = DB.t_cuenta_pres.Where(c => c.id_cuent == id).FirstOrDefault();
+                if (fromDb == null)
                 {
                     Response.StatusCode = 404;
                     return Json(new ResponseResult() { Success = false, Data = "Not found" });
                 }
-                else
+                var pres = DB.t_presupuesto.Where(a => a.id_pres == fromDb.id_pres).FirstOrDefault();
+                if (DB.t_Gastos.Any(a => (a.fecha >= pres.Desde && a.fecha <= pres.Hasta) && a.id_cat == fromDb.id_cat))
                 {
-                    DB.t_cuenta_pres.Remove(fromDbCat);
-                    DB.SaveChanges();
+                    return Json(new ResponseResult() { Success = false, Data = "No se puede eliminar la cuenta, debido a que tiene registros vinculados" });
                 }
+
+                DB.t_cuenta_pres.Remove(fromDb);
+                DB.SaveChanges();
+
             }
-            return Json(data);
+            return Json(new ResponseResult() { Success = true, Data = "Éxito" });
         }
         [HttpGet]
         public string GetAll(int? id)
