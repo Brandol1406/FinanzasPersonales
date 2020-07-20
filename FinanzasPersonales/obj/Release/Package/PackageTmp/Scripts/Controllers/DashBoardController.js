@@ -2,11 +2,10 @@
 let GastosList = [];
 
 $(document).ready(() => {
-    $("#presSelector").change(() => { loadResumenCuentas(); loadCharts(); });
+    $("#presSelector").change(() => { loadResumenCuentas(); });
     fillOptions();
     setCurrentPres();
     loadResumenCuentas();
-    loadCharts();
 });
 function fillOptions() {
     useAjax("/Presupuestos/GetAll", null, d => {
@@ -23,10 +22,14 @@ function setCurrentPres() {
     }, "POST", false);
 }
 function loadResumenCuentas() {
+    ShowLoader("#resumenBody");
+    ShowLoader("#piechart");
     var params = {
         id_pres: Number($("#presSelector").val())
     };
-    useAjax("/Home/GetResumenCuentas", JSON.stringify(params), RenderBars, "POST", true);
+    useAjax("/Home/GetResumenCuentas", JSON.stringify(params), d => {
+        RenderBars(d);
+    }, "POST", true);
 }
 //Render bars
 function RenderBars (d) {
@@ -52,6 +55,7 @@ function RenderBars (d) {
                 GastosList.push([e.Categoria, e.Gastado]);
             });
             $("#resumenBody").html(content);
+            loadCharts();
         }
         else {
             $("#resumenBody").html("<span>No hay datos para mostrar</span>");

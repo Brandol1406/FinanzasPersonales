@@ -22,10 +22,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/06/2018 11:03:48</publishTime>
     </File>
     <File Include="bin/FinanzasPersonales.dll">
-      <publishTime>05/07/2020 10:52:04</publishTime>
+      <publishTime>07/20/2020 18:06:27</publishTime>
     </File>
     <File Include="bin/FinanzasPersonales.pdb">
-      <publishTime>05/07/2020 10:52:04</publishTime>
+      <publishTime>07/20/2020 18:06:27</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/24/2018 13:38:22</publishTime>
@@ -766,10 +766,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/23/2020 11:20:43</publishTime>
     </File>
     <File Include="Scripts/Controllers/CategoriasController.js">
-      <publishTime>06/30/2020 19:46:13</publishTime>
+      <publishTime>07/16/2020 18:06:29</publishTime>
     </File>
     <File Include="Scripts/Controllers/CuentaPresController.js">
-      <publishTime>06/30/2020 19:46:06</publishTime>
+      <publishTime>07/16/2020 19:37:09</publishTime>
     </File>
     <File Include="Scripts/Controllers/DashBoardController.js">
       <publishTime>05/07/2020 10:05:32</publishTime>
@@ -1063,7 +1063,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/27/2020 17:27:58</publishTime>
     </File>
     <File Include="Scripts/Main.js">
-      <publishTime>06/30/2020 19:35:53</publishTime>
+      <publishTime>07/16/2020 19:11:25</publishTime>
     </File>
     <File Include="Scripts/popper-utils.js">
       <publishTime>06/23/2020 11:20:40</publishTime>
@@ -1315,7 +1315,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/25/2020 19:47:42</publishTime>
     </File>
     <File Include="Views/CuentaPres/Index.cshtml">
-      <publishTime>06/26/2020 19:14:35</publishTime>
+      <publishTime>07/16/2020 19:21:07</publishTime>
     </File>
     <File Include="Views/Gastos/Index.cshtml">
       <publishTime>06/26/2020 16:18:16</publishTime>
@@ -1324,7 +1324,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/26/2020 16:12:33</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>06/29/2020 18:39:29</publishTime>
+      <publishTime>07/16/2020 18:16:20</publishTime>
     </File>
     <File Include="Views/Presupuestos/Index.cshtml">
       <publishTime>06/27/2020 11:31:40</publishTime>
@@ -1336,7 +1336,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/23/2020 11:13:40</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/07/2020 10:14:24</publishTime>
+      <publishTime>07/16/2020 19:46:55</publishTime>
     </File>
   </ItemGroup>
 </Project>

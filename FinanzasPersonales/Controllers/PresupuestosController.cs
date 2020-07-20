@@ -170,10 +170,10 @@ namespace FinanzasPersonales.Controllers
             Presupuesto data = new Presupuesto();
             using (Data.FinanzasPersonales DB = new Data.FinanzasPersonales())
             {
-                var date = DateTime.Now;
+                var date = DateTime.Now.Date;
                 //var date = new DateTime(2020,12,30);
-                var fromDbCat = DB.t_presupuesto.Where(p => p.Desde <= date && p.Hasta >= date).FirstOrDefault();
-                if (fromDbCat == null)
+                var fromDb = DB.t_presupuesto.Where(p => p.Desde <= date && p.Hasta >= date).FirstOrDefault();
+                if (fromDb == null)
                 {
                     return Json(new ResponseResult() { Success = false, Data = "Not found" });
                 }
@@ -181,10 +181,10 @@ namespace FinanzasPersonales.Controllers
                 {
                     data = new Presupuesto()
                     {
-                        id_pres = fromDbCat.id_pres,
-                        Nombre = fromDbCat.Nombre,
-                        Desde = fromDbCat.Desde,
-                        Hasta = fromDbCat.Hasta
+                        id_pres = fromDb.id_pres,
+                        Nombre = fromDb.Nombre,
+                        Desde = fromDb.Desde,
+                        Hasta = fromDb.Hasta
                     };
                 }
             }

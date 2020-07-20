@@ -78,7 +78,7 @@ function destroy(id) {
             toaster.success("Éxito", "Se ha eliminado con éxito");
         }
         else {
-            toaster.warning("Advertencia", d.Data);
+            toaster.warning("Aviso", d.Data);
         }
     });
 }

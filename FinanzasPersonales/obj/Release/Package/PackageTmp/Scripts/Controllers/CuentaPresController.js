@@ -22,7 +22,6 @@ function fillOptions() {
 }
 function setCurrentPres() {
     useAjax("/Presupuestos/GetCurrent", null, d => {
-        console.log(d);
         if (d.Success) {
             $("#presSelector").val(d.Data.id_pres);
         } else {
@@ -76,7 +75,18 @@ function LoaddataTable() {
                 }
             }
         ];
-    dataTable = loadTable("#tData", "/CuentaPres/GetAll/" + $("#presSelector").val(), columns, [[0, "desc"]]);
+    dataTable = loadTable("#tData", "/CuentaPres/GetAll/" + $("#presSelector").val(), columns, [[0, "desc"]], d => {
+        if (d.length > 0) {
+            let sum = 0;
+            for (var i = 0; i < d.length; i++) {
+                sum += d[i].Limite;
+            }
+            $("#total").html(sum.toLocaleString("es-DO"));
+        }
+        else {
+            $("#total").html("0.00");
+        }
+    });
 }
 function newItem() {
     $("#btnGuardar").show();
@@ -100,7 +110,11 @@ function confirm(id) {
 function destroy(id) {
     useAjax("/CuentaPres/Delete", "{id: " + id + "}", (d) => {
         $('#confirmModal').modal("hide");
-        LoaddataTable();
-        toaster.success("Éxito", "Se ha eliminado con éxito");
+        if (d.Success) {
+            LoaddataTable();
+            toaster.success("Éxito", "Se ha eliminado con éxito");
+        } else {
+            toaster.warning("Aviso", d.Data);
+        } 
     });
 }
