@@ -104,8 +104,10 @@ namespace FinanzasPersonales.Controllers
                         );
                     }
 
-                    decimal gastado = DB.t_Gastos.Where(g => (g.fecha >= presInfo.Desde && g.fecha <= presInfo.Hasta) && g.id_cat == model.categoria && g.id_gasto != model.id_gasto)?.Sum(g => g.valor) ?? 0;
+                    var gastosCat = DB.t_Gastos.Where(g => (g.fecha >= presInfo.Desde && g.fecha <= presInfo.Hasta) && g.id_cat == model.categoria && g.id_gasto != model.id_gasto).ToList();
+                    decimal gastado = (gastosCat.Count == 0 ? 0 : gastosCat.Sum(g => g.valor));
                     decimal disponible = presInfo.Limite - gastado;
+
                     if (model.valor > disponible)
                     {
                         return Json(new ResponseResult()

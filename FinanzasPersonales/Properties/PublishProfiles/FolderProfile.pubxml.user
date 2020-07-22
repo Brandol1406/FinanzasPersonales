@@ -22,10 +22,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/06/2018 11:03:48</publishTime>
     </File>
     <File Include="bin/FinanzasPersonales.dll">
-      <publishTime>07/20/2020 18:06:27</publishTime>
+      <publishTime>07/22/2020 17:39:29</publishTime>
     </File>
     <File Include="bin/FinanzasPersonales.pdb">
-      <publishTime>07/20/2020 18:06:27</publishTime>
+      <publishTime>07/22/2020 17:39:29</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/24/2018 13:38:22</publishTime>
@@ -1324,7 +1324,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>06/26/2020 16:12:33</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>07/16/2020 18:16:20</publishTime>
+      <publishTime>07/22/2020 17:33:40</publishTime>
     </File>
     <File Include="Views/Presupuestos/Index.cshtml">
       <publishTime>06/27/2020 11:31:40</publishTime>
