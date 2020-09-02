@@ -16,16 +16,16 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>02/22/2013 08:43:40</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>07/06/2018 11:03:48</publishTime>
+      <publishTime>06/07/2018 11:03:48</publishTime>
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
-      <publishTime>07/06/2018 11:03:48</publishTime>
+      <publishTime>06/07/2018 11:03:48</publishTime>
     </File>
     <File Include="bin/FinanzasPersonales.dll">
-      <publishTime>07/22/2020 17:39:29</publishTime>
+      <publishTime>08/30/2020 17:15:11</publishTime>
     </File>
     <File Include="bin/FinanzasPersonales.pdb">
-      <publishTime>07/22/2020 17:39:29</publishTime>
+      <publishTime>08/30/2020 17:15:11</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/24/2018 13:38:22</publishTime>
@@ -175,25 +175,25 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>05/24/2018 13:38:24</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>01/02/2018 12:20:56</publishTime>
+      <publishTime>02/01/2018 12:20:56</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>01/02/2018 12:16:32</publishTime>
+      <publishTime>02/01/2018 12:16:32</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>11/02/2014 15:26:04</publishTime>
+      <publishTime>02/11/2014 15:26:04</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>01/02/2018 12:16:56</publishTime>
+      <publishTime>02/01/2018 12:16:56</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.Deployment.dll">
-      <publishTime>01/02/2018 12:20:56</publishTime>
+      <publishTime>02/01/2018 12:20:56</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.dll">
-      <publishTime>01/02/2018 12:20:56</publishTime>
+      <publishTime>02/01/2018 12:20:56</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.Razor.dll">
-      <publishTime>01/02/2018 12:20:56</publishTime>
+      <publishTime>02/01/2018 12:20:56</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>07/17/2013 17:03:52</publishTime>
@@ -772,10 +772,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/16/2020 19:37:09</publishTime>
     </File>
     <File Include="Scripts/Controllers/DashBoardController.js">
-      <publishTime>05/07/2020 10:05:32</publishTime>
+      <publishTime>07/05/2020 10:05:32</publishTime>
     </File>
     <File Include="Scripts/Controllers/GastosController.js">
-      <publishTime>06/30/2020 19:46:25</publishTime>
+      <publishTime>08/30/2020 17:03:03</publishTime>
     </File>
     <File Include="Scripts/Controllers/GastosReporteController.js">
       <publishTime>06/29/2020 18:24:34</publishTime>
@@ -1318,7 +1318,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>07/16/2020 19:21:07</publishTime>
     </File>
     <File Include="Views/Gastos/Index.cshtml">
-      <publishTime>06/26/2020 16:18:16</publishTime>
+      <publishTime>08/30/2020 17:00:59</publishTime>
     </File>
     <File Include="Views/Gastos/Reporte.cshtml">
       <publishTime>06/26/2020 16:12:33</publishTime>

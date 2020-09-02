@@ -7,6 +7,8 @@ $(document).ready(() => {
     $("#btnAgregar").click(() => newGasto());
     $("#btnGuardar").click(() => SaveGasto());
     $("#btnActualizar").click(() => UpdateGasto());
+    $("#categoria").change(() => showBalance());
+    $("#fecha").blur(() => showBalance());
     LoadGastosTable();
 });
 function SaveGasto() {
@@ -33,6 +35,19 @@ function UpdateGasto() {
         ManageModelErrors(d.Data);
     });
 }
+function showBalance() {
+    let id_cat = Number($("#categoria").val()); 
+    let fecha = $("#fecha").val();
+
+    useAjax("/CuentaPres/GetBalance", { id_cat: id_cat, fecha: fecha }, d => {
+        if (d === null || d === "") {
+            $("#balance").html('');
+        } else {
+            let balance = parseFloat(d);
+            $("#balance").html(`Balance: ${balance.toLocaleString("es-DO")}`);
+        }
+    }, "GET");
+}
 function fillOptions() {
     useAjax("/Categorias/GetAll", null, d => {
         fillDropDown("#categoria", JSON.parse(d), 'id_cat', 'Nombre');
@@ -46,6 +61,7 @@ function LoadGastosTable() {
 
     let columns =
         [
+            { data: "id_gasto" },
             { data: "categoriaNombre" },
             { data: "justificacion" },
             { data: "fecha", render: (d, t) => new Date(d).toLocaleDateString("es-DO", dateOptions) },
@@ -58,13 +74,14 @@ function LoadGastosTable() {
                 }
             }
         ];
-    gastosTable = loadTable("#tGastos", "/Gastos/GetGastos", columns, [[2, "desc"]]);
+    gastosTable = loadTable("#tGastos", "/Gastos/GetGastos", columns, [[0, "desc"]]);
 }
 function newGasto() {
     $("#btnGuardar").show();
     $("#btnActualizar").hide();
     clearForm("#frmGasto");
     $('#gastoModal').modal("show");
+    showBalance();
 }
 function edit(id, elem) {
     $("#btnGuardar").hide();
@@ -73,6 +90,7 @@ function edit(id, elem) {
     useAjax("/Gastos/Get", "{id: " + id + "}", (d) => {
         bindObjectToForm("#frmGasto", d);
         $('#gastoModal').modal("show");
+        showBalance();
     });
 }
 function confirm(id) {

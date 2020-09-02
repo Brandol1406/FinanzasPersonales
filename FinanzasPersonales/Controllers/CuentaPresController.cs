@@ -159,5 +159,33 @@ namespace FinanzasPersonales.Controllers
             }
             return Newtonsoft.Json.JsonConvert.SerializeObject(data);
         }
+        [HttpGet]
+        public decimal? GetBalance(int? id_cat, DateTime? fecha)
+        {
+            if(id_cat == null || id_cat == 0 || fecha == null)
+                return null;
+
+            using (Data.FinanzasPersonales DB = new Data.FinanzasPersonales())
+            {
+                var presInfo = (from p in DB.t_presupuesto
+                            join c in DB.t_cuenta_pres on p.id_pres equals c.id_pres
+                            where (c.id_cat == (int)id_cat) && (p.Desde <= fecha && p.Hasta >= fecha)
+                                select new
+                                {
+                                    p.Desde,
+                                    p.Hasta,
+                                    Limite = c.Limite
+                                }).FirstOrDefault();
+                if (presInfo == null)
+                {
+                    return null;
+                }
+
+                var gastosCat = DB.t_Gastos.Where(g => (g.fecha >= presInfo.Desde && g.fecha <= presInfo.Hasta) && g.id_cat == id_cat).ToList();
+                decimal gastado = (gastosCat.Count == 0 ? 0 : gastosCat.Sum(g => g.valor));
+                decimal disponible = presInfo.Limite - gastado;
+                return disponible;
+            }
+        }
     }
 }
